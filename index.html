@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gustavo Pereira | Portifólio</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
@@ -12,19 +13,21 @@
                 <li><a href="#about">Sobre</a></li>
                 <li><a href="#projects">Projetos</a></li>
                 <li><a href="#skills">Habilidades</a></li>
+                <li><a href="#interests">Interesses</a></li>
+                <li><a href="#inspiracao">Inspiração</a></li>
                 <li><a href="#contact">Contato</a></li>
             </ul>
         </nav>
-
-        <div class="hero">
-            <img src="./img/perfil.jpg" alt="Gustavo Pereira" class="hero-image">
-            <div class="hero-text">
-                <h1>Olá, eu sou o Gustavo Pereira</h1>
-                <h2>Estudante de Ciência da Computação | Foco em Engenharia de Software e Dados</h2>
-                <p>Em busca do meu primeiro estágio em TI para transformar problemas complexos em soluções eficientes.</p>
-            </div>
-        </div>
     </header>
+
+    <div class="hero">
+        <img src="./img/perfil3.jpg" alt="Gustavo Pereira" class="hero-image">
+        <div class="hero-text">
+            <h1>Olá, eu sou o Gustavo Pereira</h1>
+            <h2>Estudante de Ciência da Computação | Foco em Engenharia de Software e Dados</h2>
+            <p>Em busca do meu primeiro estágio em TI para transformar problemas complexos em soluções eficientes.</p>
+        </div>
+    </div>
 
     <section id="about">
         <h2>Sobre Mim</h2>
@@ -52,12 +55,89 @@
 
     <section id="skills">
         <h2>Habilidades</h2>
-        <ul class="skills-tree">
-            <li><strong>Programação:</strong> Python, Java, JavaScript.</li>
-            <li><strong>Desenvolvimento Web:</strong> HTML, CSS.</li>
-            <li><strong>Banco de Dados:</strong> SQL.</li>
-            <li><strong>Controle de Versão:</strong> Git.</li>
-        </ul>
+        <div class="grid-skills">
+            <div class="skill-card">
+                <h3>💻 Linguagens de Programação</h3>
+                <ul class="lista-habilidades">
+                    <li>Python</li>
+                    <li>Java</li>
+                    <li>JavaScript</li>
+                </ul>
+            </div>
+
+            <div class="skill-card">
+                <h3>🌐 Desenvolvimento Web</h3>
+                <ul class="lista-habilidades">
+                    <li>HTML</li>
+                    <li>CSS</li>
+                    <li>Responsivo</li>
+                </ul>
+            </div>
+
+            <div class="skill-card">
+                <h3>🗄️ Banco de Dados</h3>
+                <ul class="lista-habilidades">
+                    <li>SQL</li>
+                    <li>Modelagem</li>
+                    <li>Queries</li>
+                </ul>
+            </div>
+
+            <div class="skill-card">
+                <h3>🔧 Ferramentas & DevOps</h3>
+                <ul class="lista-habilidades">
+                    <li>Git</li>
+                    <li>GitHub</li>
+                    <li>VS Code</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="interests">
+        <h2>Interesses & Hobbies</h2>
+        <div class="grid-cards">
+            <div class="interest-card">
+                <h3>🎮 Games</h3>
+                <p>Apaixonado por games como estratégia e mundo aberto. Além da diversão, vejo neles exemplos fascinantes de design e user experience.</p>
+            </div>
+
+            <div class="interest-card">
+                <h3>🏃 Esportes</h3>
+                <p>Pratico atividades físicas regularmente. Para mim, manter o corpo saudável é essencial para manter a mente produtiva e criativa.</p>
+            </div>
+
+            <div class="interest-card">
+                <h3>📚 Conhecimento</h3>
+                <p>Sou um eterno aprendiz. Gosto de explorar novos conceitos em programação, tecnologia e áreas relacionadas.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="inspiracao">
+        <h2>Pessoas que me Inspiram</h2>
+        <div class="grid-cards">
+            <div class="inspiration-card">
+                <h3>Linus Torvalds</h3>
+                <p>Criador do Linux, sua visão revolucionou a tecnologia open source e demonstra o poder da comunidade na criação de software.</p>
+            </div>
+
+            <div class="inspiration-card">
+                <h3>Grace Hopper</h3>
+                <p>Pioneira em programação e desenvolvimento de compiladores. Seu legado continua inspirando gerações de programadores.</p>
+            </div>
+
+            <div class="inspiration-card">
+                <h3>Steve Jobs</h3>
+                <p>Seu foco obsessivo em experiência do usuário e design me inspira a sempre pensar nos detalhes que fazem diferença.</p>
+            </div>
+
+            <div class="inspiration-card">
+                <h3>Ada Lovelace</h3>
+                <p>A primeira programadora da história. Seu pensamento visionário sobre computação continua relevante até hoje.</p>
+            </div>
+        </div>
     </section>
 
     <section id="contato">
