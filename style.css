@@ -23,6 +23,16 @@ html {
     scroll-behavior: smooth;
 }
 
+/* Respeita preferências de redução de movimento */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
 body {
     background-color: var(--cor-fundo);
     color: var(--cor-texto);
@@ -40,6 +50,7 @@ header {
     z-index: 100;
     box-shadow: 0 4px 20px rgba(212, 175, 55, 0.1);
     backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
 }
 
 nav ul {
@@ -58,7 +69,7 @@ nav a {
     text-decoration: none;
     font-weight: 600;
     font-size: 1rem;
-    transition: var(--transicao);
+    transition: color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     position: relative;
     letter-spacing: 0.5px;
 }
@@ -119,7 +130,7 @@ nav a:hover::after {
     box-shadow: 0 0 40px rgba(212, 175, 55, 0.4),
                 inset 0 0 20px rgba(212, 175, 55, 0.1);
     flex-shrink: 0;
-    transition: var(--transicao);
+    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .hero-image:hover {
@@ -226,7 +237,7 @@ h2::after {
     border: 1px solid rgba(212, 175, 55, 0.2);
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
     border-top: 4px solid var(--cor-dourada);
-    transition: var(--transicao);
+    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), border-color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     position: relative;
     overflow: hidden;
 }
@@ -278,6 +289,77 @@ h2::after {
     transform: translateX(5px);
 }
 
+/* Link do Projeto */
+.projeto-link-wrapper {
+    margin-top: 2.5rem;
+    display: flex;
+    justify-content: flex-start;
+    gap: 1.2rem;
+    flex-wrap: wrap;
+}
+
+.projeto-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.7rem;
+    background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
+    color: var(--cor-dourada);
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), border-color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    box-shadow: 0 4px 20px rgba(212, 175, 55, 0.15),
+                inset 0 1px 0 rgba(212, 175, 55, 0.2);
+    border: 1.5px solid rgba(212, 175, 55, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.projeto-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.1), transparent);
+    transition: left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    z-index: 0;
+}
+
+.projeto-link:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px rgba(212, 175, 55, 0.25),
+                inset 0 1px 0 rgba(212, 175, 55, 0.3);
+    border-color: rgba(212, 175, 55, 0.5);
+    color: var(--cor-destaque);
+}
+
+.projeto-link:hover::before {
+    left: 100%;
+}
+
+.link-icon {
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+}
+
+.card-projeto .projeto-link {
+    color: var(--cor-dourada);
+}
+
+.card-projeto .projeto-link:hover {
+    color: var(--cor-destaque);
+}
+
 /* Habilidades */
 .lista-habilidades {
     display: flex;
@@ -296,7 +378,7 @@ h2::after {
     font-weight: 700;
     font-size: 0.95rem;
     box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
-    transition: var(--transicao);
+    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     letter-spacing: 0.5px;
     cursor: default;
 }
@@ -320,7 +402,7 @@ h2::after {
     border-radius: 12px;
     border: 2px solid rgba(212, 175, 55, 0.3);
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-    transition: var(--transicao);
+    transition: border-color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .skill-card:hover {
@@ -361,7 +443,7 @@ h2::after {
     border-radius: 12px;
     border: 2px solid rgba(212, 175, 55, 0.2);
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-    transition: var(--transicao);
+    transition: border-color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     position: relative;
     overflow: hidden;
 }
@@ -417,38 +499,108 @@ h2::after {
 }
 
 #contato h2 {
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
 }
 
-#contato a {
-    color: var(--cor-destaque);
+#contato > p:first-of-type {
+    margin-bottom: 2.5rem;
+    font-size: 1.1rem;
+    color: var(--cor-texto);
+}
+
+.contact-methods {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 2.5rem;
+    justify-items: stretch;
+}
+
+.contact-button {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.8rem 2rem;
+    border-radius: 12px;
     text-decoration: none;
     font-weight: 700;
-    font-size: 1.3rem;
-    transition: var(--transicao);
-    display: inline-block;
+    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), border-color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    border: 2px solid transparent;
     position: relative;
+    overflow: hidden;
 }
 
-#contato a::after {
+.contact-button::before {
     content: '';
     position: absolute;
-    bottom: -3px;
-    left: 0;
+    top: 0;
+    left: -100%;
     width: 100%;
-    height: 2px;
-    background: linear-gradient(90deg, var(--cor-dourada), var(--cor-destaque));
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.3s ease;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transition: left 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    z-index: 0;
 }
 
-#contato a:hover {
-    color: var(--cor-dourada);
+.contact-button:hover::before {
+    left: 100%;
 }
 
-#contato a:hover::after {
-    transform: scaleX(1);
+.contact-button svg {
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1;
+    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.contact-button:hover svg {
+    transform: scale(1.2) rotate(10deg);
+}
+
+.button-text {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    position: relative;
+    z-index: 1;
+}
+
+.button-text strong {
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
+}
+
+.button-text small {
+    font-weight: 500;
+    font-size: 0.85rem;
+    opacity: 0.9;
+}
+
+.email-button {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #ffffff;
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+}
+
+.email-button:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 40px rgba(102, 126, 234, 0.5);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.whatsapp-button {
+    background: linear-gradient(135deg, #25d366 0%, #20ba5a 100%);
+    color: #ffffff;
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.3);
+}
+
+.whatsapp-button:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 40px rgba(37, 211, 102, 0.5);
+    border-color: rgba(255, 255, 255, 0.3);
 }
 
 /* Footer */
@@ -462,13 +614,38 @@ footer {
     margin-top: 3rem;
 }
 
-footer a {
-    color: var(--cor-dourada);
-    text-decoration: none;
-    transition: var(--transicao);
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
 }
 
-footer a:hover {
+.social-links a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    color: var(--cor-dourada);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: 50%;
+    transition: color 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+}
+
+.social-links a:hover {
+    color: var(--cor-destaque);
+    border-color: rgba(212, 175, 55, 0.6);
+    transform: translateY(-3px);
+}
+
+footer a:not(.social-links a) {
+    color: var(--cor-dourada);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer a:not(.social-links a):hover {
     color: var(--cor-destaque);
 }
 
@@ -488,6 +665,55 @@ footer a:hover {
 
 ::-webkit-scrollbar-thumb:hover {
     background: var(--cor-dourada);
+}
+
+/* Desabilita animações de hover em touch */
+@media (hover: none) and (pointer: coarse) {
+    .hero-image:hover {
+        transform: none;
+        box-shadow: 0 0 40px rgba(212, 175, 55, 0.4), inset 0 0 20px rgba(212, 175, 55, 0.1);
+    }
+
+    nav a:hover {
+        color: var(--cor-texto);
+    }
+
+    nav a:hover::after {
+        width: 0;
+    }
+
+    .card-projeto:hover {
+        transform: none;
+    }
+
+    .lista-habilidades li:hover {
+        transform: none;
+    }
+
+    .projeto-link:hover {
+        transform: none;
+    }
+
+    .skill-card:hover {
+        transform: none;
+    }
+
+    .interest-card:hover,
+    .inspiration-card:hover {
+        transform: none;
+    }
+
+    .contact-button:hover {
+        transform: none;
+    }
+
+    .contact-button svg:hover {
+        transform: none;
+    }
+
+    .social-links a:hover {
+        transform: none;
+    }
 }
 
 @media (max-width: 768px) {
@@ -574,7 +800,25 @@ footer a:hover {
         padding: 2rem;
     }
 
-    #contato a {
-        font-size: 1rem;
+    .contact-methods {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .contact-button {
+        padding: 1.5rem;
+    }
+
+    .button-text small {
+        font-size: 0.8rem;
+    }
+
+    .projeto-link {
+        font-size: 0.9rem;
+        padding: 0.9rem 1.6rem;
+    }
+
+    .link-icon {
+        font-size: 1.1rem;
     }
 }
